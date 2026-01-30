@@ -23,11 +23,11 @@ add_include_folder(vendor/include)
 
 
 cmake_minimum_required(VERSION 3.21)
-set(AUTHOR_NAME "AuthorName")
-set(PRODUCT_NAME "SKSEMenuFrameworkTemplate")
-set(BEAUTIFUL_NAME "SKSE Menu Framework Template")
+set(AUTHOR_NAME "RavenKZP")
+set(PRODUCT_NAME "UniversalArrowSpin")
+set(BEAUTIFUL_NAME "Universal Arrow Spin")
 
-project(${PRODUCT_NAME} VERSION 3.0.0.0 LANGUAGES CXX)
+project(${PRODUCT_NAME} VERSION 1.0.0.0 LANGUAGES CXX)
 set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_INTERPROCEDURAL_OPTIMIZATION ON)
@@ -109,10 +109,6 @@ endforeach()
 
 list(REMOVE_DUPLICATES header_dirs)
 
-
-find_path(DETOURS_INCLUDE_DIRS "detours/detours.h")
-find_library(DETOURS_LIBRARY detours REQUIRED)
-
 target_include_directories(
 	${PROJECT_NAME}
 	PRIVATE
@@ -120,7 +116,6 @@ target_include_directories(
     ${CLIB_UTIL_INCLUDE_DIRS}
     ${CMAKE_CURRENT_SOURCE_DIR}/include
 )
-target_link_libraries(${PROJECT_NAME} PRIVATE ${DETOURS_LIBRARY})
 target_compile_definitions(${PRODUCT_NAME} PRIVATE MOD_NAME="${BEAUTIFUL_NAME}")
 
 
