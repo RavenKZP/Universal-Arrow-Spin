@@ -4,6 +4,8 @@
     "version-string": "1.0",
     "dependencies": [
         "clib-util",
+        "directxtk",
+        "rapidcsv",
         "spdlog"
     ],
     "overrides": [

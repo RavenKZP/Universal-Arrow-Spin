@@ -8,8 +8,7 @@ void Hooks::ArrowUpdate::thunk(RE::ArrowProjectile* a_this, float a_delta) {
 
     // Skip spinning if impacts have been processed
     const auto& rt = a_this->GetProjectileRuntimeData();
-    constexpr std::uint32_t kProcessed = static_cast<std::uint32_t>(RE::Projectile::Flags::kProcessedImpacts);
-    if ((rt.flags & kProcessed)) {
+    if (rt.flags.any(RE::Projectile::Flags::kProcessedImpacts)) {
         return;
     }
 
